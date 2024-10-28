@@ -320,7 +320,7 @@ return {
 		vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
 		vim.keymap.set("n", "<leader>pv", ":Neotree filesystem toggle<CR>")
 		vim.keymap.set("n", "<leader>ff", ":Neotree filesystem focus<CR>")
-		vim.keymap.set("n", "<leader>fs", ":Neotree filesystem show<CR>")
-		vim.keymap.set("n", "<leader>fgs", ":Neotree float git_status<CR>")
+		vim.keymap.set("n", "<leader>sf", ":Neotree filesystem show<CR>")
+		vim.keymap.set("n", "<leader>gs", ":Neotree float git_status<CR>")
 	end,
 }

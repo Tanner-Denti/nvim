@@ -12,7 +12,7 @@ return {
 			},
 
 			indent = {
-				enable = true,
+				disable = true,
 			},
 		})
 	end,

@@ -1,11 +1,11 @@
 -- See none-ls.lua for linters and formatters
-return {   
+return {
     {
         "williamboman/mason.nvim",
         lazy = false,
         config = function()
             require("mason").setup({})
-        end
+        end,
     },
 
     {
@@ -13,7 +13,7 @@ return {
         lazy = false,
         opts = {
             auto_install = true,
-        }
+        },
     },
 
     {
@@ -43,11 +43,25 @@ return {
             lspconfig.vimls.setup({ capabilities = capabilities })
             lspconfig.lemminx.setup({ capabilities = capabilities })
             lspconfig.yamlls.setup({ capabilities = capabilities })
-            lspconfig.lua_ls.setup({ capabilities = capabilities }) 
+            lspconfig.lua_ls.setup({ capabilities = capabilities })
+            lspconfig.emmet_language_server.setup({
+                capabilities = capabilites,
+                filetypes = {
+                    "css",
+                    "html",
+                    "javascript",
+                    "javascriptreact",
+                    "less",
+                    "sass",
+                    "scss",
+                    "typescriptreact",
+                    "typescript",
+                },
+            })
 
-            vim.keymap.set('n', '<leader>e', vim.lsp.buf.hover, {})
-            vim.keymap.set({'n', 'v'}, '<leader>gd', vim.lsp.buf.definition, {})
-            vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
-        end
+            vim.keymap.set("n", "<leader>e", vim.lsp.buf.hover, {})
+            vim.keymap.set({ "n", "v" }, "<leader>gd", vim.lsp.buf.definition, {})
+            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+        end,
     },
 }

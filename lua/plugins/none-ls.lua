@@ -7,7 +7,8 @@ return {
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.formatting.stylua, -- Lua
-                null_ls.builtins.formatting.biome, -- JS, TS, HTML, CSS, JSON, MD, GraphQL 
+                null_ls.builtins.formatting.biome, -- JS, TS, HTML, CSS, JSON, MD, GraphQL
+                null_ls.builtins.formatting.prettier,
                 null_ls.builtins.diagnostics.pylint, -- Py
                 null_ls.builtins.formatting.black, -- Py
                 null_ls.builtins.formatting.shfmt, -- Bash
@@ -21,8 +22,8 @@ return {
                 null_ls.builtins.diagnostics.sqlfluff.with({
                     extra_args = { "--dialect", "postgres" }, --extra_args can be a function for extra logic
                 }),
-                null_ls.builtins.diagnostics.yamllint, -- Go
-                null_ls.builtins.formatting.yamlfix, -- Java
+                null_ls.builtins.diagnostics.yamllint,
+                null_ls.builtins.formatting.yamlfix,
 			},
 		})
 
