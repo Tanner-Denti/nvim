@@ -1,40 +1,36 @@
-vim.opt.nu = true
-vim.opt.relativenumber = true
+local opts = {noremap = true, silent = true}
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+-- Will use first terminal buffer in the buffer list or make a new one if none.
+vim.keymap.set('n', '<Leader>st', function()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.bo[buf].buftype == 'terminal' then
+      vim.cmd('belowright split')
+      vim.cmd('buffer ' .. buf)
+      return
+    end
+  end
 
--- Change tab settings for html files
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "html",
-	callback = function()
-		vim.opt_local.shiftwidth = 2
-		vim.opt_local.tabstop = 2
-        vim.opt_local.softtabstop = 2
-	end
-})
+  vim.cmd('belowright split')
+  vim.cmd('term')
+end, opts)
 
-vim.opt.smartindent = false
+vim.keymap.set('n', '<Leader>h', '<C-w>h', opts)
+vim.keymap.set('n', '<Leader>j', '<C-w>j', opts)
+vim.keymap.set('n', '<Leader>k', '<C-w>k', opts)
+vim.keymap.set('n', '<Leader>l', '<C-w>l', opts)
+vim.keymap.set('n', '<Leader>nw', '<C-w>w', opts)
 
-vim.opt.wrap = false
+vim.keymap.set('t', '<Leader>h', '<C-\\><C-n><C-w>h', opts)
+vim.keymap.set('t', '<Leader>j', '<C-\\><C-n><C-w>j', opts)
+vim.keymap.set('t', '<Leader>k', '<C-\\><C-n><C-w>k', opts)
+vim.keymap.set('t', '<Leader>l', '<C-\\><C-n><C-w>l', opts)
+vim.keymap.set('t', '<Leader>nw', '<C-\\><C-n><C-w>w', opts)
 
-vim.opt.shadafile = 'NONE'
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+vim.keymap.set('n', '<Leader>cw', function()
+    vim.cmd('close')
+end, opts)
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
-vim.opt.termguicolors = true
-
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
-
-vim.opt.updatetime = 50
-
-vim.opt.colorcolumn = "90"
+vim.keymap.set('t', '<Leader>cw', function()
+    vim.cmd('close')
+end, opts)
+			vim.api.nvim_set_keymap("t", "<leader>nb", "<C-\\><C-n>:BufferLineCycleNext<CR>", opts)
