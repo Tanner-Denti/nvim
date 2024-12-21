@@ -105,7 +105,7 @@ return {
                 custom_colors = {}, -- Overwrite default colors
             })
 
-            -- vim.cmd.colorscheme("onenord")
+            vim.cmd.colorscheme("onenord")
         end,
     },
     
@@ -137,7 +137,7 @@ return {
                     LuaSnipActiveChoice = { fg = nord_colors.black2, bg = nord_colors.black2 },
                 },
             })
-            vim.cmd.colorscheme("nordic")
+            -- vim.cmd.colorscheme("nordic")
         end,
     },
     

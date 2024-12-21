@@ -33,4 +33,5 @@ end, opts)
 vim.keymap.set('t', '<Leader>cw', function()
     vim.cmd('close')
 end, opts)
-			vim.api.nvim_set_keymap("t", "<leader>nb", "<C-\\><C-n>:BufferLineCycleNext<CR>", opts)
+
+vim.api.nvim_set_keymap("t", "<leader>nb", "<C-\\><C-n>:BufferLineCycleNext<CR>", opts)
