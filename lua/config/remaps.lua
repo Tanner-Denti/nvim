@@ -6,4 +6,3 @@ local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap("n", "<leader>t", ":tab term<CR>", opts)
 -- Switch to the "next" tab
 vim.api.nvim_set_keymap("n", "<leader>nt", ":tabn<CR>", opts)
-

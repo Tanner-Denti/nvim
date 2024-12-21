@@ -45,7 +45,7 @@ return {
             lspconfig.yamlls.setup({ capabilities = capabilities })
             lspconfig.lua_ls.setup({ capabilities = capabilities })
             lspconfig.emmet_language_server.setup({
-                capabilities = capabilites,
+                capabilities = capabilities,
                 filetypes = {
                     "css",
                     "html",
@@ -57,6 +57,11 @@ return {
                     "typescriptreact",
                     "typescript",
                 },
+                init_options = {
+                    preferences = {
+                        ["output.reverseAttributes"] = true -- So given attributes like 'for' and 'href' don't come first.
+                    }
+                }
             })
 
             vim.keymap.set("n", "<leader>e", vim.lsp.buf.hover, {})
