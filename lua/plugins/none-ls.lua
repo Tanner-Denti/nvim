@@ -7,9 +7,14 @@ return {
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.formatting.stylua, -- Lua
-				null_ls.builtins.formatting.biome, -- JS, TS, JSON, GraphQL
-                null_ls.builtins.formatting.prettier,
-				null_ls.builtins.diagnostics.pylint, -- Py
+				-- null_ls.builtins.formatting.biome, -- JS, TS, JSON, GraphQL
+				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.diagnostics.pylint.with({
+                    extra_args = {
+                        "--disable=all",
+                        "--enable=E,unused-import",
+                    },
+                }), -- Py
 				null_ls.builtins.formatting.black, -- Py
 				null_ls.builtins.formatting.shfmt, -- Bash
 				null_ls.builtins.diagnostics.hadolint, -- Docker
@@ -24,6 +29,9 @@ return {
 				}),
 				null_ls.builtins.diagnostics.yamllint,
 				null_ls.builtins.formatting.yamlfix,
+				--null_ls.builtins.formatting.clang_format.with({
+			    --		filetypes = { "c", "cpp" },
+				--}),
 			},
 		})
 

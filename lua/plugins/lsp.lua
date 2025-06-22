@@ -25,8 +25,10 @@ return {
             local lspconfig = require("lspconfig")
             lspconfig.bashls.setup({ capabilities = capabilities })
             lspconfig.cssls.setup({ capabilities = capabilities })
+            lspconfig.clangd.setup({ capabilities = capabilities })
             lspconfig.docker_compose_language_service.setup({ capabilities = capabilities })
             lspconfig.dockerls.setup({ capabilities = capabilities })
+            lspconfig.eslint.setup({ capabilities = capabilities })
             lspconfig.gopls.setup({ capabilities = capabilities })
             lspconfig.gradle_ls.setup({ capabilities = capabilities })
             lspconfig.groovyls.setup({ capabilities = capabilities })
@@ -64,8 +66,12 @@ return {
                 }
             })
 
-            vim.keymap.set("n", "<leader>e", vim.lsp.buf.hover, {})
+            vim.keymap.set({ "n", "v" }, "<leader>e", vim.lsp.buf.hover, {})
+            vim.keymap.set({ "n", "v" }, "<leader>rn", vim.lsp.buf.rename, {})
             vim.keymap.set({ "n", "v" }, "<leader>gd", vim.lsp.buf.definition, {})
+            vim.keymap.set({ "n", "v" }, "<leader>gt", vim.lsp.buf.type_definition, {})
+            vim.keymap.set({ "n", "v" }, "<leader>gr", vim.lsp.buf.references, {})
+            vim.keymap.set({ "n", "v" }, "<leader>gi", vim.lsp.buf.implementation, {})
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
         end,
     },

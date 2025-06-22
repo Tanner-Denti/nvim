@@ -7,7 +7,7 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-ui-select.nvim",
         },
-        
+
         config = function()
             require("telescope").setup({
                 defaults = {
@@ -15,10 +15,10 @@ return {
 
                     layout_config = {
                         horizontal = {
-                            preview_width = 80,
+                            preview_width = 100,
                         },
                         vertical = {
-                            width = 85,
+                            width = 100,
                             height = 30,
                         },
                     },
@@ -53,9 +53,7 @@ return {
                     enable_preview = true,
                     ignore_builtins = true,
                 })
-
             end, { desc = "Telescope Colorscheme Picker" })
-
         end,
     },
 

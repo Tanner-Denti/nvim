@@ -1,4 +1,4 @@
-# nvim
+#nvim
 
 This project contains neo-vim configurations to turn your command line
 into a highly configurable IDE.

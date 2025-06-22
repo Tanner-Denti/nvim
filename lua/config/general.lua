@@ -8,7 +8,7 @@ vim.opt.expandtab = true
 
 -- Change tab settings for html files
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "html",
+	pattern = {"html", "javascript", "javascriptreact", "typescript", "typescriptreact", "css"},
 	callback = function()
 		vim.opt_local.shiftwidth = 2
 		vim.opt_local.tabstop = 2
