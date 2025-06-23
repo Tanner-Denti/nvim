@@ -38,7 +38,13 @@ return {
 			additional_vim_regex_highlighting = false,
 		})
 
-		local opts = { noremap = true, silent = true }
-        vim.api.nvim_set_keymap("n", "<leader>it", ":InspectTree<CR>", opts)
+		local opts = require("config.utils").opts
+
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>it",
+			":InspectTree<CR>",
+			opts(true, true, "(:InspectTree) Inspect treesitter syntax tree")
+		)
 	end,
 }

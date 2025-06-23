@@ -324,8 +324,25 @@ return {
 		})
 
 		vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
-		vim.keymap.set("n", "<leader>pv", ":Neotree filesystem toggle<CR>")
-		vim.keymap.set("n", "<leader>ff", ":Neotree filesystem focus<CR>")
-		vim.keymap.set("n", "<leader>sf", ":Neotree filesystem show<CR>")
+		local opts = require("config.utils").opts
+
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>pv",
+			":Neotree filesystem toggle<CR>",
+			opts(true, true, "(:Neotree filesystem toggle) Toggle Neotree file explorer")
+		)
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>ff",
+			":Neotree filesystem focus<CR>",
+			opts(true, true, "(:Neotree filesystem focus) Focus Neotree file explorer")
+		)
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>sf",
+			":Neotree filesystem show<CR>",
+			opts(true, true, "(:Neotree filesystem show) Show Neotree file explorer")
+		)
 	end,
 }

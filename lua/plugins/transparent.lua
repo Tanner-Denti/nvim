@@ -40,6 +40,13 @@ return {
 			on_clear = function() end,
 		})
 
-		vim.keymap.set("n", "<leader>tt", ":TransparentToggle<CR>", { desc = "Toggle Transparent Background" })
+		local opts = require("config.utils").opts
+
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>tt",
+			":TransparentToggle<CR>",
+			opts(true, true, "(:TransparentToggle) Toggle transparent background")
+		)
 	end,
 }
