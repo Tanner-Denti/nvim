@@ -2,15 +2,19 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		lazy = false,
+		cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate" },
 		config = function()
-			require("mason").setup({})
+			require("mason").setup({
+				ui = {
+					check_outdated_packages_on_open = false,
+				},
+			})
 		end,
 	},
 
 	{
 		"williamboman/mason-lspconfig.nvim",
-		lazy = false,
+		event = { "BufReadPre", "BufNewFile" },
 		opts = {
 			ensure_installed = { "ts_ls", "lua_ls", "pylsp", "gopls" },
 		},

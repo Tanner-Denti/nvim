@@ -1,5 +1,6 @@
 return {
 	"mbbill/undotree",
+	event = "VeryLazy",
 	config = function()
 		-- Configuration options
 		vim.g.undotree_WindowLayout = 2 -- Layout: tree on left, diff on bottom

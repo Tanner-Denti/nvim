@@ -1,4 +1,15 @@
 vim.diagnostic.config({
+
+	-- Configure signs
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.INFO] = " ",
+			[vim.diagnostic.severity.HINT] = "󰌵",
+		},
+	},
+
 	-- Show diagnostics in virtual text (inline with your code)
 	virtual_text = {
 		enabled = true,

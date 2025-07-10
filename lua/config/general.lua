@@ -1,3 +1,9 @@
+-- Disable default project explorer in favor or neotree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrwSettings = 1
+vim.g.loaded_netrwFileHandlers = 1
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -8,19 +14,19 @@ vim.opt.expandtab = true
 
 -- Change tab settings for html files
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = {"html", "javascript", "javascriptreact", "typescript", "typescriptreact", "css"},
+	pattern = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact", "css" },
 	callback = function()
 		vim.opt_local.shiftwidth = 2
 		vim.opt_local.tabstop = 2
-        vim.opt_local.softtabstop = 2
-	end
+		vim.opt_local.softtabstop = 2
+	end,
 })
 
-vim.opt.smartindent = false
+vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
-vim.opt.shadafile = 'NONE'
+vim.opt.shadafile = "NONE"
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"

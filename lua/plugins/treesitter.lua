@@ -31,10 +31,6 @@ return {
 				enable = true,
 			},
 
-			indent = {
-				disable = true,
-			},
-
 			additional_vim_regex_highlighting = false,
 		})
 

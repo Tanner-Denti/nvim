@@ -28,16 +28,6 @@ return {
 	},
 	config = function()
 		-- If you want icons for diagnostic errors, you'll need to define them somewhere:
-		vim.diagnostic.config({
-			signs = {
-				text = {
-					[vim.diagnostic.severity.ERROR] = " ",
-					[vim.diagnostic.severity.WARN] = " ",
-					[vim.diagnostic.severity.INFO] = " ",
-					[vim.diagnostic.severity.HINT] = "󰌵",
-				},
-			},
-		})
 
 		require("neo-tree").setup({
 			close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
